@@ -1,0 +1,19 @@
+<div class="header">
+  <div class="icons-wrapper">
+    <div class="icons" (click)="switchIcon('all')" [ngClass]="{active: activeIcon === 'all'}">All</div>
+    <div class="icons" (click)="switchIcon('indian')" [ngClass]="{active: activeIcon === 'indian'}">Indian</div>
+    <div class="icons" (click)="switchIcon('asian')" [ngClass]="{active: activeIcon === 'asian'}">Asian</div>
+    <div class="icons" (click)="switchIcon('mediterranean')" [ngClass]="{active: activeIcon === 'mediterranean'}">Mediterranean</div>
+    <div class="icons" (click)="switchIcon('american')" [ngClass]="{active: activeIcon === 'american'}">American</div>
+    <div class="icons" (click)="switchIcon('italian')" [ngClass]="{active: activeIcon === 'italian'}">Italian</div>
+    <div class="icons" (click)="switchIcon('bakery')" [ngClass]="{active: activeIcon === 'bakery'}">Bakery</div>
+  </div>
+  <div class="search-wrapper">
+    <mat-form-field class="example-full-width">
+      <mat-label>Type something</mat-label>
+      <input matInput placeholder="Enter restaurant name">
+    </mat-form-field>
+    <button mat-button color="primary" (click)="search()">Search</button>
+  </div>
+</div>
+

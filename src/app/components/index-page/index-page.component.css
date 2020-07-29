@@ -1,0 +1,41 @@
+.header {
+  height: 800px;
+  background: url(../../../assets/images/desktop-backround.jpg);
+  background-position: top center;
+  background-size: cover;
+}
+.icons-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 300px 0 0;
+  margin: 0 auto;
+  width: 45%;
+}
+.icons {
+  padding: 10px 15px;
+  color: #fff;
+  border-radius: 50px;
+  background: #673ab6;
+  cursor: pointer;
+}
+.icons.active {
+  background: transparent;
+  color: #673ab6;
+  border: 1px solid #673ab6;
+}
+
+.search-wrapper {
+  margin: 130px auto;
+  width: 32%;
+}
+
+.search-wrapper mat-form-field {
+  width: 80%;
+}
+.search-wrapper button {
+  width: 17%;
+  background: #673ab7;
+  color: #fff;
+  margin-left: 10px;
+}

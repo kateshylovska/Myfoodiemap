@@ -16,10 +16,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Myfoodiemap'`, () => {
+  it(`should have as title 'foodiemap'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Myfoodiemap');
+    expect(app.title).toEqual('foodiemap');
   });
 
   it('should render title in a h1 tag', () => {

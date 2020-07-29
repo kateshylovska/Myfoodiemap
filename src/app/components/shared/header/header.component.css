@@ -1,0 +1,11 @@
+.spacer {
+  flex: 1 1 auto;
+}
+.top-title {
+  margin-left: 41%;
+}
+.top-title a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
