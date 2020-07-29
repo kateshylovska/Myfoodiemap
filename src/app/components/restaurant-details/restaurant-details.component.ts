@@ -10,6 +10,8 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './restaurant-details.component.html',
   styleUrls: ['./restaurant-details.component.css']
 })
+
+// This class uses twice. First time - when user want to add new restaurant. Second time - when user want to edit existing restaurant
 export class RestaurantDetailsComponent implements OnInit {
 
   form: FormGroup;
@@ -37,19 +39,20 @@ export class RestaurantDetailsComponent implements OnInit {
       website: ['', Validators.required],
       phone: ['', Validators.required],
     });
-
+    // if exist id in url then we set existing values to our Reactive Form that comes from Database
     if (id) {
-      this.restaurantService.get(id).subscribe(e => {
-        if (e) {
-          this.form.get('name').setValue(e.name);
-          this.form.get('street1').setValue(e.street1);
-          this.form.get('city').setValue(e.city);
-          this.form.get('state_code').setValue(e.state_code);
-          this.form.get('country').setValue(e.country);
-          this.form.get('zip').setValue(e.zip);
-          this.form.get('website').setValue(e.website);
-          this.form.get('phone').setValue(e.phone);
-          this.data = e;
+      // making request to backend and database and get restaurant by id
+      this.restaurantService.get(id).subscribe(restaurant => {
+        if (restaurant) {
+          this.form.get('name').setValue(restaurant.name);
+          this.form.get('street1').setValue(restaurant.street1);
+          this.form.get('city').setValue(restaurant.city);
+          this.form.get('state_code').setValue(restaurant.state_code);
+          this.form.get('country').setValue(restaurant.country);
+          this.form.get('zip').setValue(restaurant.zip);
+          this.form.get('website').setValue(restaurant.website);
+          this.form.get('phone').setValue(restaurant.phone);
+          this.data = restaurant;
         }
       });
     }

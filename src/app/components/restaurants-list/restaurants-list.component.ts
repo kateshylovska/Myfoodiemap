@@ -22,16 +22,7 @@ export class RestaurantsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     const params = new Map<string, string>();
-    // params.set('q', this.query);
-    params.set('pageSize', '10');
-    params.set('from', '0');
-
-    // if (this.paginator) {
-    //   params.set('pageSize', this.paginator?.pageSize ? this.paginator.pageSize.toString() : '10');
-    //   params.set('from', (this.paginator.pageIndex * this.paginator.pageSize).toString());
-    // }
 
     this.restaurantService.search(params).subscribe(e => {
       this.dataSource.data = e.result;
