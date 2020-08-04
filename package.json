@@ -7,7 +7,17 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:browser:prod": "ng build --prod",
+    "build:browser:serverless": "ng build --prod --base-href /production/",
+    "build:serverless": "npm run build:browser:serverless && npm run build:server:serverless",
+    "build:prod": "npm run build:browser:prod && npm run build:server:prod",
+    "server": "node local.js",
+    "build:prod:deploy": "npm run build:prod && npm run deploy",
+    "build:serverless:deploy": "npm run build:serverless && npm run deploy",
+    "deploy": "serverless deploy",
+    "build:server:prod": "webpack --config webpack.server.config.js --progress --colors",
+    "build:server:serverless": "webpack --config webpack.server.config.js --progress --colors"
   },
   "private": true,
   "dependencies": {
@@ -22,9 +32,13 @@
     "@angular/platform-browser": "~10.0.4",
     "@angular/platform-browser-dynamic": "~10.0.4",
     "@angular/router": "~10.0.4",
+    "@ng-toolkit/serverless": "^8.1.0",
+    "@ng-toolkit/universal": "^1.1.21",
     "rxjs": "~6.6.0",
     "tslib": "^1.9.0",
-    "zone.js": "~0.10.3"
+    "zone.js": "~0.10.3",
+    "cors": "^2.8.5",
+    "aws-serverless-express": "^3.3.6"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1000.3",
@@ -43,9 +57,15 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
+    "opencollective": "^1.0.3",
     "protractor": "^7.0.0",
+    "serverless": "^1.60.0",
+    "serverless-api-compression": "^1.0.1",
+    "serverless-apigw-binary": "^0.4.4",
+    "ts-loader": "^6.2.1",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.9.7"
+    "typescript": "~3.9.7",
+    "webpack-cli": "^3.3.10"
   }
 }

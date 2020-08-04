@@ -17,6 +17,7 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {HttpClientModule} from '@angular/common/http';
     MatInputModule,
     MatTableModule,
     MatButtonModule,
+    MatCardModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBFhoeUwsizsKcA6IXO0DL3NuO-6zEqibg'
     }),

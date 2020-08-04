@@ -39,6 +39,6 @@
       <input matInput placeholder="zip" formControlName="zip" required>
     </mat-form-field>
   </div>
-  <button mat-raised-button color="primary" (click)="save()" [disabled]="!form.valid">Save</button>
+  <button class="save-button" mat-raised-button color="primary" (click)="save()" [disabled]="!form.valid">Save</button>
   <button mat-raised-button color="primary" (click)="location.back()" >Cancel</button>
 </form>
