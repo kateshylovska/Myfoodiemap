@@ -3,8 +3,6 @@
     <mat-form-field>
       <input matInput placeholder="name" formControlName="name" required>
     </mat-form-field>
-  </div>
-  <div>
     <mat-form-field>
       <input matInput placeholder="street" formControlName="street1" required>
     </mat-form-field>
@@ -13,32 +11,34 @@
     <mat-form-field>
       <input matInput placeholder="city" formControlName="city" required>
     </mat-form-field>
-  </div>
-  <div>
     <mat-form-field>
       <input matInput placeholder="state" formControlName="state_code" required>
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
-      <input matInput placeholder="country" formControlName="country" required>
-    </mat-form-field>
-  </div>
-  <div>
-    <mat-form-field>
       <input matInput placeholder="website" formControlName="website" required>
     </mat-form-field>
-  </div>
-  <div>
     <mat-form-field>
       <input matInput placeholder="phone" formControlName="phone" required>
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
+      <input matInput placeholder="lat" formControlName="geo_lat" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="lng" formControlName="geo_lng" required>
+    </mat-form-field>
+  </div>
+  <div class="left">
+    <mat-form-field class="last_field">
       <input matInput placeholder="zip" formControlName="zip" required>
     </mat-form-field>
   </div>
+  <div class="left">
   <button class="save-button" mat-raised-button color="primary" (click)="save()" [disabled]="!form.valid">Save</button>
-  <button mat-raised-button color="primary" (click)="location.back()" >Cancel</button>
+  <button class="cancel-button" mat-raised-button color="primary" (click)="location.back()" >Cancel</button>
+  <button mat-raised-button color="primary" (click)="getGeoByAddress()" >Get geo by address</button>
+  </div>
 </form>

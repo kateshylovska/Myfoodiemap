@@ -3,6 +3,7 @@ import {Restaurant} from '../model/restaurant';
 import {Observable} from 'rxjs';
 import {GenericCrudService} from './generic-crud.service';
 import {PagedResult} from '../model/paged-result';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,13 @@ import {PagedResult} from '../model/paged-result';
 export class RestaurantService {
 
   constructor(
-    private crudService: GenericCrudService
+    private crudService: GenericCrudService,
+    private http: HttpClient,
   ) {
+  }
+
+  getGeoById(address: string): Observable<any> {
+    return this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBFhoeUwsizsKcA6IXO0DL3NuO-6zEqibg`);
   }
 
   save(data: Restaurant): Observable<Restaurant> {

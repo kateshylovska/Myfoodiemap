@@ -1,0 +1,15 @@
+{
+  "serverless": {
+    "project": "Myfoodiemap",
+    "provider": "aws",
+    "skipInstall": false,
+    "directory": ".",
+    "lambdaTS": false,
+    "offline": false,
+    "clientProject": "Myfoodiemap",
+    "serverless": {
+      "aws": {},
+      "gcloud": {}
+    }
+  }
+}

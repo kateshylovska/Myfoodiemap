@@ -5,8 +5,12 @@ export class Restaurant {
   city: string;
   zip: string;
   state_code: string;
-  country: string;
   website: string;
   phone: string;
   rating: number;
+  image: string;
+  geo: {
+    lat: number,
+    lng: number
+  };
 }

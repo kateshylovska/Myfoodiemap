@@ -34,11 +34,12 @@
     "@angular/router": "~10.0.4",
     "@ng-toolkit/serverless": "^8.1.0",
     "@ng-toolkit/universal": "^1.1.21",
+    "aws-serverless-express": "^3.3.6",
+    "cors": "^2.8.5",
+    "ngx-disqus": "^2.4.3",
     "rxjs": "~6.6.0",
     "tslib": "^1.9.0",
-    "zone.js": "~0.10.3",
-    "cors": "^2.8.5",
-    "aws-serverless-express": "^3.3.6"
+    "zone.js": "~0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1000.3",

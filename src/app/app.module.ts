@@ -18,6 +18,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
+import { ReviewPageComponent } from './components/review-page/review-page.component';
+import { DisqusModule } from 'ngx-disqus';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import {MatCardModule} from '@angular/material/card';
     RestaurantDetailsComponent,
     IndexPageComponent,
     RestaurantsListComponent,
-    HeaderComponent
+    HeaderComponent,
+    ReviewPageComponent
   ],
   imports: [
     AppRoutingModule,
@@ -42,7 +45,8 @@ import {MatCardModule} from '@angular/material/card';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBFhoeUwsizsKcA6IXO0DL3NuO-6zEqibg'
     }),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DisqusModule.forRoot('disqus_restaurantplace')
   ],
   providers: [],
   bootstrap: [AppComponent]
