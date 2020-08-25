@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  auth: 'https://mrp-l.auth.us-east-2.amazoncognito.com/login?client_id=1i6agkhen9tmrjqer5790a68is&response_type=code&scope=email+phone+aws.cognito.signin.user.admin+openid+profile&redirect_uri=http://localhost:4200'
+  auth: 'https://mrp-l.auth.us-east-2.amazoncognito.com/login?client_id=1i6agkhen9tmrjqer5790a68is&response_type=token&scope=email+openid&redirect_uri=http://localhost:4200'
 };
 
 /*
