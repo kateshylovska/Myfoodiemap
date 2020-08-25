@@ -3,6 +3,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import {PeriodicElement} from '../../app.component';
 import {RestaurantService} from '../../service/restaurant.service';
 import {Restaurant} from '../../model/restaurant';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import {filter} from 'rxjs/operators';
 
 @Component({
   selector: 'app-restaurants-list',
@@ -21,19 +23,38 @@ export class RestaurantsListComponent implements OnInit {
     'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fcdn-image.foodandwine.com%2Fsites%2Fdefault%2Ffiles%2F1480696614%2Fseafood-paella-XL-RECIPE0117.jpg',
     'https://www.readersdigest.ca/wp-content/uploads/2015/11/gourmet-burger-scaled.jpg'
   ];
-
+  q: string;
+  category: string;
   constructor(
-    private restaurantService: RestaurantService
-  ) {}
+    private restaurantService: RestaurantService,
+    private route: ActivatedRoute,
+    private router: Router,
+  ) {
+    router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        const navigation = router.getCurrentNavigation();
+        console.log(navigation);
+        this.q = navigation.extras.queryParams && navigation.extras.queryParams.q;
+        this.category = navigation.extras.queryParams && navigation.extras.queryParams.category;
+      }
+    });
+  }
 
   ngOnInit(): void {
     const params = new Map<string, string>();
-
     this.restaurantService.search(params).subscribe(e => {
       this.restaurants = e.result.map((item, index) => {
         item.image = this.restaurantsImages[index];
         return item;
       });
+      console.log(this.q);
+      console.log(this.category);
+      if (this.q && this.q !== '') {
+        this.restaurants = this.restaurants.filter(item => item.name.toLowerCase().indexOf(this.q.toLowerCase()) !== -1);
+      }
+      if (this.category && this.category !== '' && this.category !== 'all') {
+        this.restaurants = this.restaurants.filter(item => item.category.toLowerCase() === this.category.toLowerCase());
+      }
     });
   }
 }

@@ -20,6 +20,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import { ReviewPageComponent } from './components/review-page/review-page.component';
 import { DisqusModule } from 'ngx-disqus';
+import {MatSelectModule} from '@angular/material/select';
+import { StarRatingModule } from 'angular-star-rating';
+
 
 @NgModule({
   declarations: [
@@ -31,13 +34,14 @@ import { DisqusModule } from 'ngx-disqus';
     ReviewPageComponent
   ],
   imports: [
+    StarRatingModule.forRoot(),
     AppRoutingModule,
     BrowserModule,
     MatIconModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatToolbarModule,
-    MatMenuModule,
+    MatMenuModule,  
     MatInputModule,
     MatTableModule,
     MatButtonModule,
@@ -46,7 +50,8 @@ import { DisqusModule } from 'ngx-disqus';
       apiKey: 'AIzaSyBFhoeUwsizsKcA6IXO0DL3NuO-6zEqibg'
     }),
     ReactiveFormsModule,
-    DisqusModule.forRoot('disqus_restaurantplace')
+    DisqusModule.forRoot('disqus_restaurantplace'),
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -45,3 +45,7 @@ span{
 ::ng-deep .mat-card-header-text {
   margin: 0 !important;
 }
+::ng-deep .star-svg {
+  margin-top: -20px;
+  margin-left: -45px;
+}

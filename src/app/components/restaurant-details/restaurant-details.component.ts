@@ -16,14 +16,39 @@ export class RestaurantDetailsComponent implements OnInit {
 
   form: FormGroup;
   data: Restaurant;
+  categories: any[] = [
+    {
+      value: 'All'
+    },
+    {
+      value: 'Asian'
+    },
+    {
+      value: 'American'
+    },
+    {
+      value: 'Bakery'
+    },
+    {
+      value: 'Indian'
+    },
+    {
+      value: 'Vegan'
+    },
+    {
+      value: 'Mediterranean'
+    },
+    {
+      value: 'Italian'
+    }
+  ];
 
   constructor(
     public location: Location,
     private formBuilder: FormBuilder,
     private restaurantService: RestaurantService,
     private route: ActivatedRoute,
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
 
@@ -37,6 +62,7 @@ export class RestaurantDetailsComponent implements OnInit {
       zip: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
       website: ['', Validators.required],
       phone: ['', Validators.required],
+      category: ['', Validators.required],
       geo_lat: ['', Validators.required],
       geo_lng: ['', Validators.required]
     });
@@ -52,6 +78,7 @@ export class RestaurantDetailsComponent implements OnInit {
           this.form.get('zip').setValue(restaurant.zip);
           this.form.get('website').setValue(restaurant.website);
           this.form.get('phone').setValue(restaurant.phone);
+          this.form.get('category').setValue(restaurant.category);
           if (restaurant.geo) {
             this.form.get('geo_lat').setValue(restaurant.geo.lat);
             this.form.get('geo_lng').setValue(restaurant.geo.lng);
@@ -74,6 +101,7 @@ export class RestaurantDetailsComponent implements OnInit {
     this.data.zip = this.form.get('zip').value;
     this.data.website = this.form.get('website').value;
     this.data.phone = this.form.get('phone').value;
+    this.data.category = this.form.get('category').value;
     if (this.data.geo) {
       this.data.geo.lat = this.form.get('geo_lat').value;
       this.data.geo.lng = this.form.get('geo_lng').value;

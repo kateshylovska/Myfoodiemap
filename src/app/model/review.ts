@@ -3,5 +3,5 @@ export class Review {
   restaurant_id: string;
   review_body: string;
   rating: number;
-  user_id: string;
+  user_id?: string;
 }

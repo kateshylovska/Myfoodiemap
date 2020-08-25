@@ -13,4 +13,5 @@ export class Restaurant {
     lat: number,
     lng: number
   };
+  category: any;
 }

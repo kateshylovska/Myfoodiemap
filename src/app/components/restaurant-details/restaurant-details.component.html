@@ -31,11 +31,24 @@
       <input matInput placeholder="lng" formControlName="geo_lng" required>
     </mat-form-field>
   </div>
-  <div class="left">
-    <mat-form-field class="last_field">
+  <div>
+    <mat-form-field>
       <input matInput placeholder="zip" formControlName="zip" required>
     </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category">
+        <mat-option *ngFor="let category of categories" [value]="category.value">
+          {{category.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
+<!--  <div class="left">-->
+<!--    <mat-form-field class="last_field">-->
+<!--      <input matInput placeholder="zip" formControlName="zip" required>-->
+<!--    </mat-form-field>-->
+<!--  </div>-->
   <div class="left">
   <button class="save-button" mat-raised-button color="primary" (click)="save()" [disabled]="!form.valid">Save</button>
   <button class="cancel-button" mat-raised-button color="primary" (click)="location.back()" >Cancel</button>

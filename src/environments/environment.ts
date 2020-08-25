@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  auth: 'https://mrp-l.auth.us-east-2.amazoncognito.com/login?client_id=1i6agkhen9tmrjqer5790a68is&response_type=code&scope=email+phone+aws.cognito.signin.user.admin+openid+profile&redirect_uri=http://localhost:4200'
 };
 
 /*

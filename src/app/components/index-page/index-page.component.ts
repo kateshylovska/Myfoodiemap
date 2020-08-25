@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 
 
@@ -17,6 +17,7 @@ export class IndexPageComponent implements OnInit {
   // activeIcon property set type of UI icon. 'All' is set by default
   activeIcon = 'all';
   // Constructor should call first
+  @ViewChild('inputRef') inputRef: ElementRef<any>;
   constructor(private router: Router) {}
   // Method should call straight after initialization of IndexPage component
   ngOnInit(): void {
@@ -24,9 +25,14 @@ export class IndexPageComponent implements OnInit {
   // switchIcon method changes state of this.activeIcon property that allows UI icons change 'active' class
   switchIcon(icon) {
     this.activeIcon = icon;
+    this.search();
   }
   // search method calls when user click on search button. It redirect user to /restaurant-list page and passes parameters
   search() {
-    this.router.navigate(['/restaurants-list'], {queryParams: {category: this.activeIcon}});
+    if (this.inputRef.nativeElement.value !== '') {
+      this.router.navigate(['/restaurants-list'], {queryParams: {category: this.activeIcon, q: this.inputRef.nativeElement.value}});
+    } else {
+      this.router.navigate(['/restaurants-list'], {queryParams: {category: this.activeIcon}});
+    }
   }
 }

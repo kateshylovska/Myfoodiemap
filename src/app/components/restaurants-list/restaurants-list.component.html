@@ -15,10 +15,13 @@
         <p>
           <strong>Website: </strong> <a target="_blank" href="{{item.website.indexOf('http') !== -1 ? item.website : 'http://www.'+item.website}}">{{item.website}}</a>
         </p>
+        <p *ngIf="item.rating">
+          <strong>Rating: </strong> <star-rating [starType]="'svg'" [rating]="item.rating"></star-rating>
+        </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button routerLink="/restaurant-details/{{item.id}}">MORE</button>
-        <button mat-button>EDIT</button>
+        <button mat-button routerLink="/restaurant-review/{{item.id}}">MORE</button>
+        <button mat-button routerLink="/restaurant-details/{{item.id}}">EDIT</button>
       </mat-card-actions>
     </mat-card>
   </div>
@@ -28,5 +31,4 @@
       <agm-marker [latitude]="item.geo.lat" [longitude]="item.geo.lng" *ngFor="let item of restaurants"></agm-marker>
     </agm-map>
   </div>
-
 </div>
